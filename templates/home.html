@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fl rounded mt-5 p-5">
+  <div class="row text-center">
+    <div class="col-sm">
+      <h1 class="fw-bold">DAFTAR RUJUKAN COVID-19</h1>
+      <p>DI INDONESIA</p>
+    </div>
+  </div>
+  <div class="row-align-items-center text center">
+    <div class="col-sm text-center">
+      <img src="{{ url_for('static', filename='assets/img/hospital.png') }}" class="img-fluid" style="width: 300px" />
+    </div>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for i in rs%}
+    <div class="col">
+      <div class="card" style="width: 35rem">
+        <div class="card-body">
+          <h5 class="carid-title bg-info fw-bold" style="background-position-x: left;">{{ i['name'] }}</h5>
+          <h6 class="card-subtitle mb-2 text muted">{{ i['province'] }}</h6>
+          <div class="card-text small">
+            Alamat : {{ i['address'] }}<br>
+            Wilayah : {{ i['region'] }}<br>
+            No.Telp : {{ i['phone'] }}<br>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
